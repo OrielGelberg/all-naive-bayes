@@ -1,12 +1,12 @@
-# model_tester.py
+# Validator.py
 """
 Test the accuracy of the Naive Bayes model
 """
 from sklearn.model_selection import train_test_split
-from naive_bayes import NaiveBayesClassifier
+from Classifier import Classifier
 
 
-class ModelTester:
+class Validator:
     def __init__(self, data_handler):
         """Initialize with data handler"""
         self.data_handler = data_handler
@@ -26,7 +26,7 @@ class ModelTester:
         )
 
         # Train model on training data
-        classifier = NaiveBayesClassifier(train_data, target_column, feature_columns)
+        classifier = Classifier(train_data, target_column, feature_columns)
 
         # Test on test data
         correct_predictions = 0

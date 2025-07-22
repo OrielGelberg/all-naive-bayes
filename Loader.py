@@ -1,4 +1,4 @@
-# data_handler.py
+# Loader.py
 """
 Universal data handler for any CSV file
 """
@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 
-class DataHandler:
+class Loader:
     def __init__(self):
         self.data = None
         self.target_column = None
@@ -71,23 +71,3 @@ class DataHandler:
             return list(self.data[column].unique())
         return []
 
-    def check_exact_match(self, input_dict):
-        """Check if input exactly matches any row in the data"""
-        if self.data is None:
-            return None
-
-        # Create a mask for all conditions
-        mask = pd.Series([True] * len(self.data))
-
-        for feature, value in input_dict.items():
-            if feature in self.feature_columns:
-                mask = mask & (self.data[feature] == value)
-
-        # Find matching rows
-        matches = self.data[mask]
-
-        if len(matches) > 0:
-            # Return the target value from the first match
-            return matches.iloc[0][self.target_column]
-
-        return None
