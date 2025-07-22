@@ -168,18 +168,6 @@ class UniversalNaiveBayesApp:
 
 def main():
     """Main function with different usage examples"""
-    app = UniversalNaiveBayesApp()
-
-    # Example 1: Computer purchase data
-    print("Example 1: Computer Purchase Data")
-    app.run("Data.csv", target_column="Buy_Computer", mode="local")
-
-    # Example 2: Titanic survival data
-    # app.run("CSV_titanic.csv", target_column="Survived", mode="local")
-
-    # Example 3: Server mode
-    # app.run("Data.csv", target_column="Buy_Computer", mode="server")
-
 
 if __name__ == "__main__":
     # Simple usage
