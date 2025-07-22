@@ -1,4 +1,4 @@
-# naive_bayes.py
+# Classifier.py
 """
 Universal Naive Bayes Classifier for any CSV data
 """
@@ -7,7 +7,7 @@ import numpy as np
 from collections import defaultdict
 
 
-class NaiveBayesClassifier:
+class Classifier:
     def __init__(self, data, target_column, feature_columns):
         """Initialize classifier with data"""
         self.data = data.copy()
@@ -79,3 +79,26 @@ class NaiveBayesClassifier:
     def get_feature_columns(self):
         """Return feature columns"""
         return self.feature_columns
+
+
+
+    def check_exact_match(self, input_dict):
+        """Check if input exactly matches any row in the data"""
+        if self.data is None:
+            return None
+
+        # Create a mask for all conditions
+        mask = pd.Series([True] * len(self.data))
+
+        for feature, value in input_dict.items():
+            if feature in self.feature_columns:
+                mask = mask & (self.data[feature] == value)
+
+        # Find matching rows
+        matches = self.data[mask]
+
+        if len(matches) > 0:
+            # Return the target value from the first match
+            return matches.iloc[0][self.target_column]
+
+        return None
