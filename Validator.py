@@ -4,6 +4,8 @@ Test the accuracy of the Naive Bayes model
 """
 from sklearn.model_selection import train_test_split
 from Classifier import Classifier
+from Predict import PredictNaiveBayes as pnb
+
 
 
 class Validator:
@@ -27,6 +29,7 @@ class Validator:
 
         # Train model on training data
         classifier = Classifier(train_data, target_column, feature_columns)
+        model, class_probabilities = classifier.calculate_model()
 
         # Test on test data
         correct_predictions = 0
@@ -39,7 +42,7 @@ class Validator:
                 input_values[col] = row[col]
 
             # Get prediction
-            predicted_class, _ = classifier.predict(input_values)
+            predicted_class, _ = pnb.predict(input_values,model,class_probabilities)
             actual_class = row[target_column]
 
             if predicted_class == actual_class:
