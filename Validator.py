@@ -42,7 +42,7 @@ class Validator:
                 input_values[col] = row[col]
 
             # Get prediction
-            predicted_class, _ = pnb.predict(input_values,model,class_probabilities)
+            predicted_class = pnb.predict(input_values,model,class_probabilities)
             actual_class = row[target_column]
 
             if predicted_class == actual_class:

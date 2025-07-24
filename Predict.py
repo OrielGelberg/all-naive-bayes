@@ -29,4 +29,4 @@ class PredictNaiveBayes:
 
         # Return class with highest probability
         predicted_class = max(class_scores, key=class_scores.get)
-        return "buy computer", predicted_class
+        return  predicted_class
