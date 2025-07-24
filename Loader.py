@@ -65,9 +65,4 @@ class Loader:
         """Return feature column names"""
         return self.feature_columns
 
-    # def get_unique_values(self, column):
-    #     """Get unique values for a specific column"""
-    #     if self.data is not None and column in self.data.columns:
-    #         return list(self.data[column].unique())
-    #     return []
 
