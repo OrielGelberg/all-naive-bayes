@@ -3,8 +3,8 @@
 Test the accuracy of the Naive Bayes model
 """
 from sklearn.model_selection import train_test_split
-from Classifier import Classifier
-from Predict import PredictNaiveBayes as pnb
+from Model import Classifier
+from Classifier import PredictNaiveBayes as pnb
 
 
 

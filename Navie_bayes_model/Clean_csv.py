@@ -1,18 +1,8 @@
-# Loader.py
-"""
-Universal data handler for any CSV file
-"""
 import pandas as pd
-import numpy as np
 
+class Clean_csv:
 
-class Loader:
-    def __init__(self):
-        self.data = None
-        self.target_column = None
-        self.feature_columns = []
-
-    def load_csv(self, file_path, target_column=None, index_col=None):
+    def clean_csv(self, file_path, target_column=None):
         """Load CSV file and automatically detect structure"""
         try:
             # Always reset index to avoid using index as a feature
@@ -52,22 +42,4 @@ class Loader:
         except Exception as e:
             print(f"Error loading file: {e}")
             return False
-
-    def get_data(self):
-        """Return the loaded data"""
-        return self.data
-
-    def get_target_column(self):
-        """Return target column name"""
-        return self.target_column
-
-    def get_feature_columns(self):
-        """Return feature column names"""
-        return self.feature_columns
-
-    def get_unique_values(self, column):
-        """Get unique values for a specific column"""
-        if self.data is not None and column in self.data.columns:
-            return list(self.data[column].unique())
-        return []
 

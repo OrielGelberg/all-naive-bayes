@@ -1,4 +1,4 @@
-# Classifier.py
+# Model.py
 """
 Universal Naive Bayes Classifier for any CSV data
 """

@@ -2,8 +2,7 @@
 """
 Universal Naive Bayes Classifier Application
 """
-from Classifier import Classifier
-from Client_request import ServerClient
+from Model import Classifier
 from Loader import Loader
 from Validator import Validator
 
@@ -17,13 +16,12 @@ class NaiveBayesApp:
     def __init__(self):
         self.data_handler = Loader()
         self.classifier = None
-        self.server_client = ServerClient()
         self.model = {}
         self.class_probabilities = {}
 
     def load_csv(self, file_path, target_column=None):
         """Load data"""
-        success = self.data_handler.load_csv(file_path, target_column)
+        success = self.data_handler.clean_csv(file_path, target_column)
         if not success:
             return False
 

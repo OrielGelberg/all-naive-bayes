@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Request
 import uvicorn
 from main import NaiveBayesApp
-from Predict import PredictNaiveBayes as pnb
+
 
 app = FastAPI()
 
@@ -14,13 +14,14 @@ tester = classifier.tester()
 
 
 
-@app.get("/predict")
-async def predict(request: Request):
-    query = dict(request.query_params)
-    print(request)
-    print(query)
-    method = pnb.predict(query,model, class_probabilities)
-    return {"target": target, "result": method , "Accuracy percentage": tester}
+@app.get("/model_to_predict")
+async def model_to_predict(request: Request):
+    return {"target": target,"model": model ,"class_probabilities": class_probabilities,"tester": tester}
+
+
+
+
+
 
 if __name__ == "__main__":
 
