@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Request
 import uvicorn
 from main import NaiveBayesApp
-from Predict import PredictNaiveBayes as pnb
+from Classifier import PredictNaiveBayes as pnb
 
 app = FastAPI()
 
